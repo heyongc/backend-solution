@@ -61,6 +61,12 @@ import { useStore } from 'vuex'
 
 // defineEmits(['click'])
 
+// import { init } from '@/api/sys'
+
+// init().then((data) => {
+//   console.log('【init res】', data)
+// })
+
 // 数据源
 const loginForm = ref({
   username: 'super-admin',

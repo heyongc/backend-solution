@@ -5,6 +5,8 @@ import store from './store'
 import installElementPlus from './plugins/element'
 // 初始化样式表
 import '@/styles/index.scss'
+// 导入权限控制模块
+import './permission'
 
 import installIcons from '@/icons'
 // console.log(installIcons)
