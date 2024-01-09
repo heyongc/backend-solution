@@ -20,6 +20,16 @@ module.exports = {
         target: 'https://api.imooc-admin.lgdsunday.club/',
         changeOrigin: true
       }
+    },
+    client: {
+      overlay: false
+    }
+  },
+  configureWebpack: {
+    resolve: {
+      fallback: {
+        path: require.resolve('path-browserify')
+      }
     }
   },
   chainWebpack(config) {

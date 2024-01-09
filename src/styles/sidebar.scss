@@ -78,7 +78,7 @@
 
   .hideSidebar {
     .sidebar-container {
-      width: 54px !important;
+      width: $hideSideBarWidth !important;
     }
 
     .main-container {

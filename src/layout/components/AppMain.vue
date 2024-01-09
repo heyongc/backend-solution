@@ -1,5 +1,7 @@
 <template>
-  <div class="app-main">AppMain</div>
+  <div class="app-main">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script setup>
@@ -8,7 +10,7 @@ import {} from 'vue'
 
 <script>
 export default {
-  name: 'cmp-name'
+  name: 'app-main'
 }
 </script>
 
