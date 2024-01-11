@@ -5,8 +5,12 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { defineOptions, computed } from 'vue'
 import { useStore } from 'vuex'
+
+defineOptions({
+  name: 'hamburger'
+})
 
 const store = useStore()
 const toggleClick = () => {

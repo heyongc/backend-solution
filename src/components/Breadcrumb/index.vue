@@ -19,9 +19,13 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { defineOptions, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
+
+defineOptions({
+  name: 'breadcrumb'
+})
 
 const route = useRoute()
 console.log('【breaedcrumb route】', route)
