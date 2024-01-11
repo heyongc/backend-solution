@@ -9,7 +9,15 @@ import {} from 'vue'
 <style lang="scss" scoped></style> -->
 
 <template>
-  <div class="">个人中心</div>
+  <div class="">
+    个人中心
+
+    <el-pagination
+      :page-size="100"
+      layout="total, prev, pager, next"
+      :total="1000"
+    />
+  </div>
 </template>
 
 <script setup>

@@ -7,7 +7,8 @@
       :rules="logonRules"
     >
       <div class="title-container">
-        <h3 class="title">用戶登录</h3>
+        <h3 class="title">{{ $t('msg.login.title') }}</h3>
+        <lang-select class="lang-select" effect="light"></lang-select>
       </div>
 
       <el-form-item prop="username">
@@ -48,24 +49,24 @@
         :loading="loading"
         @click="handleLogin"
       >
-        提交
+        {{ $t('msg.login.loginBtn') }}
       </el-button>
+
+      <div class="tips" v-html="$t('msg.login.desc')"></div>
     </el-form>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import LangSelect from '@/components/LangSelect/index.vue'
+import { ref, computed } from 'vue'
 import { validatePassword } from './rules'
 import { useStore } from 'vuex'
+import { useI18n } from 'vue-i18n'
+
+import { watchSwitchLang } from '@/utils/i18n'
 
 // defineEmits(['click'])
-
-// import { init } from '@/api/sys'
-
-// init().then((data) => {
-//   console.log('【init res】', data)
-// })
 
 // 数据源
 const loginForm = ref({
@@ -74,12 +75,17 @@ const loginForm = ref({
 })
 
 // 验证规则
+const i18n = useI18n()
+
+console.log('【login index i18n】', i18n)
+
 const logonRules = ref({
   username: [
     {
       required: true,
       trigger: 'blur',
-      message: '用户名为必填项'
+      // message: '用户名为必填项'
+      message: computed(() => i18n.t('msg.login.usernameRule'))
     }
   ],
   password: [
@@ -123,6 +129,10 @@ const handleLogin = () => {
       })
   })
 }
+
+watchSwitchLang(() => {
+  loginFromRef.value.validate()
+})
 </script>
 
 <script>
@@ -176,6 +186,19 @@ $cursor: #fff;
     }
   }
 
+  .tips {
+    font-size: 16px;
+    line-height: 28px;
+    color: #fff;
+    margin-bottom: 10px;
+
+    span {
+      &:first-of-type {
+        margin-right: 16px;
+      }
+    }
+  }
+
   .svg-container {
     padding: 6px 5px 6px 15px;
     color: $dark_gray;
@@ -193,6 +216,17 @@ $cursor: #fff;
       text-align: center;
       font-weight: bold;
     }
+  }
+
+  :deep(.lang-select) {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    background-color: white;
+    font-size: 22px;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
   }
 
   .show-pwd {

@@ -7,6 +7,9 @@ export default {
     language: getItem(LANG) || 'zh'
   }),
   mutations: {
+    /**
+     * 切换侧边栏状态
+     */
     triggerSidebarOpened(state) {
       state.sidebarOpened = !state.sidebarOpened
     },
