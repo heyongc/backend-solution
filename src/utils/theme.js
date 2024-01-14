@@ -9,6 +9,7 @@ import axios from 'axios'
  */
 export const writeNewStyle = (elNewStyle) => {
   const style = document.createElement('style')
+  style.className = 'custom-elementPlusCss'
   style.innerText = elNewStyle
   document.head.appendChild(style)
 }
@@ -19,8 +20,7 @@ export const writeNewStyle = (elNewStyle) => {
  */
 export const generateNewStyle = async (primaryColor) => {
   const colors = generateColors(primaryColor)
-  // console.log('【colors】', colors)
-
+  // console.log('【色值表 colors】', colors)
   let cssText = await getOriginalStyle()
 
   // 遍历生成的样式表，在 CSS 的原样式中进行全局替换
@@ -45,8 +45,8 @@ export const generateColors = (primary) => {
   Object.keys(formula).forEach((key) => {
     const value = formula[key].replace(/primary/g, primary)
     colors[key] = '#' + rgbHex(color.convert(value))
+    // console.log(`【${key}】`, value, colors[key])
   })
-  // console.log('【colors】', colors)
   return colors
 }
 
@@ -58,6 +58,7 @@ const getOriginalStyle = async () => {
   const url = `https://cdn.jsdelivr.net/npm/element-plus@${version}/dist/index.css`
   const { data } = await axios(url)
 
+  // console.log('【elCssText】', data)
   // 把获取到的数据筛选为原样式模板
   return getStyleTemplate(data)
 }
