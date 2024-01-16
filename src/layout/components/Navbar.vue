@@ -5,6 +5,8 @@
     <breadcrumb class="breadcrumb-container" />
     <!--  -->
     <div class="right-menu">
+      <!-- 全屏展示 -->
+      <screenfull class="right-menu-item hover-effect"></screenfull>
       <!-- 动态换肤 -->
       <theme-picker class="right-menu-item hover-effect"></theme-picker>
       <!-- 国际化 -->
@@ -42,6 +44,7 @@ import Hamburger from '@/components/Hamburger'
 import Breadcrumb from '@/components/Breadcrumb'
 import LangSelect from '@/components/LangSelect'
 import ThemePicker from '@/components/ThemePicker/index'
+import Screenfull from '@/components/Screenfull'
 
 import { defineOptions } from 'vue'
 import { useStore } from 'vuex'
