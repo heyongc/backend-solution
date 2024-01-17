@@ -16,7 +16,7 @@ const getChildrenRoutes = (routes) => {
  * 处理脱离层级的路由：某个一级路由为其他子路由，则剔除该一级路由，保留路由层级
  * @param {*} routes router.getRoutes()
  */
-export const filterRouters = (routes) => {
+export const filterRoutes = (routes) => {
   const childrenRoutes = getChildrenRoutes(routes)
   return routes.filter((route) => {
     return !childrenRoutes.find((childrenRoute) => {

@@ -37,7 +37,7 @@ const i18n = createI18n({
   messages
 })
 
-console.log('【i18n instance】', i18n)
-window._i18n = i18n
+// console.log('【i18n instance】', i18n)
+// window._i18n = i18n
 
 export default i18n

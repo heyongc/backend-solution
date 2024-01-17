@@ -5,6 +5,7 @@
     <breadcrumb class="breadcrumb-container" />
     <!--  -->
     <div class="right-menu">
+      <header-search class="right-menu-item hover-effect"></header-search>
       <!-- 全屏展示 -->
       <screenfull class="right-menu-item hover-effect"></screenfull>
       <!-- 动态换肤 -->
@@ -45,6 +46,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import LangSelect from '@/components/LangSelect'
 import ThemePicker from '@/components/ThemePicker/index'
 import Screenfull from '@/components/Screenfull'
+import HeaderSearch from '@/components/HeaderSearch'
 
 import { defineOptions } from 'vue'
 import { useStore } from 'vuex'
