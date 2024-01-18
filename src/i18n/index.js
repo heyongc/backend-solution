@@ -3,8 +3,8 @@ import mZhLocale from './lang/zh'
 import mEnLocale from './lang/en'
 import store from '@/store'
 
-console.log('【mZhLocale】', mZhLocale)
-console.log('【mEnLocale】', mEnLocale)
+// console.log('【mZhLocale】', mZhLocale)
+// console.log('【mEnLocale】', mEnLocale)
 
 const messages = {
   en: {

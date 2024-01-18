@@ -1,5 +1,5 @@
 <template>
-  <span>
+  <span class="svg-icon-container0">
     <!-- 展示外部图标 -->
     <div
       v-if="isExternal"
@@ -55,6 +55,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.svg-icon-container {
+  display: inline-block;
+}
 .svg-icon {
   width: 1em;
   height: 1em;

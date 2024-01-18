@@ -2,9 +2,10 @@
   <div class="navbar">
     <hamburger class="hamburger-container" />
     <!-- 面包屑 -->
-    <breadcrumb class="breadcrumb-container" />
+    <breadcrumb id="guide-breadcrumb" class="breadcrumb-container" />
     <!--  -->
     <div class="right-menu">
+      <guide class="right-menu-item hover-effect" />
       <header-search class="right-menu-item hover-effect"></header-search>
       <!-- 全屏展示 -->
       <screenfull class="right-menu-item hover-effect"></screenfull>
@@ -47,6 +48,7 @@ import LangSelect from '@/components/LangSelect'
 import ThemePicker from '@/components/ThemePicker/index'
 import Screenfull from '@/components/Screenfull'
 import HeaderSearch from '@/components/HeaderSearch'
+import Guide from '@/components/Guide'
 
 import { defineOptions } from 'vue'
 import { useStore } from 'vuex'
