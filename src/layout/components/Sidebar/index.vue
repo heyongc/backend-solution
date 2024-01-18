@@ -34,15 +34,18 @@ export default {
 .logo-container {
   // height: 44px;
   height: v-bind(logoHeight) + 'px';
-  padding: 10px 0 22px 0;
+  // padding: 10px 0 22px 0;
+  padding: 15px 0 10px 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
   .logo-title {
+    margin: 0;
     margin-left: 10px;
     color: #fff;
     font-weight: 600;
-    line-height: 50px;
+    line-height: 44px;
     font-size: 16px;
     white-space: nowrap;
   }
