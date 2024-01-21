@@ -23,6 +23,8 @@ service.interceptors.request.use(
       config.headers.Authorization = `Bearer ${store.getters.token}`
     }
     config.headers.icode = 'helloqianduanxunlianying'
+    // 配置接口国际化
+    config.headers['Accept-Language'] = store.getters.language
     return config // 必须返回配置
   },
   (error) => {
@@ -33,7 +35,7 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   (response) => {
-    console.log('【interceptors.response】', response)
+    // console.log('【interceptors.response】', response)
     const { success, message, data } = response.data
     // 要根据success的成功与否决定下面的操作
     if (success) {
