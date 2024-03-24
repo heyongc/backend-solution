@@ -7,6 +7,9 @@ console.log('【store】', store)
 const whiteList = ['/login']
 
 /**
+ * 登录鉴权
+ */
+/**
  * 路由前置守卫
  */
 router.beforeEach(async (to, from, next) => {
@@ -24,7 +27,6 @@ router.beforeEach(async (to, from, next) => {
       next()
     }
   } else {
-    // debugger
     // 2. 用户未登录，则只允许进入 login
     // 没有token的情况下，可以进入白名单
     if (whiteList.indexOf(to.path) > -1) {

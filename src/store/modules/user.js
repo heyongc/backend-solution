@@ -22,6 +22,7 @@ export default {
   },
   actions: {
     login(context, userInfo) {
+      // debugger
       const { username, password } = userInfo
       return new Promise((resolve, reject) => {
         login({

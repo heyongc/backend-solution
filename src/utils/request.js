@@ -19,7 +19,7 @@ service.interceptors.request.use(
         return Promise.reject(new Error('token 失效'))
       }
 
-      // 如果token存在，注入token
+      // 如果token存在，请求头注入token
       config.headers.Authorization = `Bearer ${store.getters.token}`
     }
     config.headers.icode = 'helloqianduanxunlianying'

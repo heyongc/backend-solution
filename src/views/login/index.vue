@@ -14,6 +14,7 @@
       <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon="user" />
+          <!-- <svg-icon icon="https://res.lgdsunday.club/user.svg" /> -->
         </span>
         <el-input
           placeholder="username"
@@ -25,9 +26,7 @@
 
       <el-form-item prop="password">
         <span class="svg-container">
-          <span class="svg-container">
-            <svg-icon icon="password" />
-          </span>
+          <svg-icon icon="password" />
         </span>
         <el-input
           placeholder="password"
@@ -232,8 +231,8 @@ $cursor: #fff;
   .show-pwd {
     position: absolute;
     right: 10px;
-    // top: 7px;
-    top: 14px;
+    top: 7px;
+    // top: 14px;
     font-size: 16px;
     color: $dark_gray;
     cursor: pointer;
