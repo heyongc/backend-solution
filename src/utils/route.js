@@ -6,12 +6,13 @@ import path from 'path'
 const getChildrenRoutes = (routes) => {
   const result = []
   routes.forEach((route) => {
-    if (route.children && route.children.length > 0) {
+    if (route.children?.length > 0) {
       result.push(...route.children)
     }
   })
   return result
 }
+
 /**
  * 处理脱离层级的路由：某个一级路由为其他子路由，则剔除该一级路由，保留路由层级
  * @param {*} routes router.getRoutes()
@@ -36,7 +37,12 @@ function isNull(data) {
 }
 
 /**
- * 根据 routes 数据，返回对应 menu 规则数组
+ * issue: https://coding.imooc.com/learn/questiondetail/279805.html
+ * 该方法的作用：根据 routes 数据，返回对应 menu 规则数组。
+ * 方法本质为构建了一个：递归
+ * @param {*} routes 需要解析的路由表
+ * @param {*} basePath 解析过程中需要处理的基础路径
+ * @returns 返回一个数组，该数组会在 SidebarMenu 中被 v-for 循环用于 sidebar-item 的渲染
  */
 export function generateMenus(routes, basePath = '') {
   const result = []
@@ -57,7 +63,12 @@ export function generateMenus(routes, basePath = '') {
     // console.log('【routePath】', routePath)
 
     // 路由分离之后，存在同名父路由的情况，需要单独处理
+    // 路由分离之后，存在同名父路由（指的是：name 相同的路由对象）的情况，需要单独处理
+    // 很多同学比较关注同名父路由，这个其实不需要过于关心的。因为同名的 name 本身就是不符合约定的。
     let route = result.find((item) => item.path === routePath)
+
+    // 查找匹配的 route 对象，如果 route 对象不存在，则表示当前的 route 还没有放入到 result 数组中，
+    // 所以我们需要构建一个新的 route 对象，并且把它放入到 result 里面
     if (!route) {
       // 当前路由尚未添加到result
       route = {
