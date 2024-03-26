@@ -3,6 +3,8 @@ import rgbHex from 'rgb-hex'
 import formula from '@/constant/formula.json'
 import axios from 'axios'
 
+console.log('【formula】', formula)
+
 /**
  * 写入新样式到style
  * @param {*} elNewStyle element-plus 的新样式
@@ -19,18 +21,20 @@ export const writeNewStyle = (elNewStyle) => {
  * @param {*} primaryColor
  */
 export const generateNewStyle = async (primaryColor) => {
+  // 1. 根据主色生成色值表
   const colors = generateColors(primaryColor)
-  // console.log('【色值表 colors】', colors)
+  console.log('【色值表 colors】', colors)
+
+  // 2. 获取当前 element-plus 的默认样式表，并且把需要进行替换的色值打上标记
   let cssText = await getOriginalStyle()
 
-  // 遍历生成的样式表，在 CSS 的原样式中进行全局替换
+  // 3. 遍历生成的色值表，在 默认样式表 进行全局替换
   Object.keys(colors).forEach((key) => {
     cssText = cssText.replace(
       new RegExp('(:|\\s+)' + key, 'g'),
       '$1' + colors[key]
     )
   })
-
   return cssText
 }
 
@@ -45,7 +49,6 @@ export const generateColors = (primary) => {
   Object.keys(formula).forEach((key) => {
     const value = formula[key].replace(/primary/g, primary)
     colors[key] = '#' + rgbHex(color.convert(value))
-    // console.log(`【${key}】`, value, colors[key])
   })
   return colors
 }
@@ -65,9 +68,10 @@ const getOriginalStyle = async () => {
 
 /**
  * 返回 style 的 template
+ * 把需要进行替换的色值打上标记
  */
 const getStyleTemplate = (data) => {
-  // element-plus 默认色值
+  // element-plus 默认色值（需要打标记得色值）
   const colorMap = {
     '#3a8ee6': 'shade-1',
     '#409eff': 'primary',
@@ -83,8 +87,7 @@ const getStyleTemplate = (data) => {
   }
   // 根据默认色值为要替换的色值打上标记
   Object.keys(colorMap).forEach((key) => {
-    const value = colorMap[key]
-    data = data.replace(new RegExp(key, 'ig'), value)
+    data = data.replace(new RegExp(key, 'ig'), colorMap[key])
   })
   return data
 }

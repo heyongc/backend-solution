@@ -23,10 +23,8 @@ import { useRouter, useRoute } from 'vue-router'
 import { filterRoutes, generateMenus } from '@/utils/route'
 import SidebarItem from './SidebarItem'
 
-// const router = useRouter()
-// console.log('【router】', router.getRoutes())
-
 const router = useRouter()
+// console.log('【router】', router.getRoutes())
 const routes = computed(() => {
   const fRoutes = filterRoutes(router.getRoutes())
   return generateMenus(fRoutes)
