@@ -10,6 +10,7 @@ import installIcons from '@/icons'
 
 // filter
 import installFilter from '@/filters'
+import installDirectives from '@/directives'
 
 // 初始化样式表
 import '@/styles/index.scss'
@@ -22,5 +23,6 @@ const app = createApp(App)
 installElementPlus(app)
 installIcons(app)
 installFilter(app)
+installDirectives(app)
 
 app.use(store).use(router).use(i18n).mount('#app')
