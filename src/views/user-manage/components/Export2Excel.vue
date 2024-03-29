@@ -90,7 +90,11 @@ const formatJson = (headers, rows) => {
           return roles[0].title
         }
 
-        return JSON.stringify(roles.map((role) => role.title))
+        // return JSON.stringify(roles.map((role) => role.title))
+        return JSON.stringify(roles.map((role) => role.title)).replaceAll(
+          '"',
+          ''
+        )
       }
       return item[headers[key]]
     })
