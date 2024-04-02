@@ -51,5 +51,14 @@ module.exports = {
         symbolId: 'icon-[name]'
       })
       .end()
+
+    // 创建一个新的规则，用于处理 element-plus 2 的错误
+    config.module
+      .rule('element-plus-2')
+      .test(/\.mjs$/)
+      // https://webpack.docschina.org/configuration/module/#ruletype
+      .type('javascript/auto')
+      .include.add(/node_modules/)
+      .end()
   }
 }
