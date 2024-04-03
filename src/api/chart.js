@@ -17,3 +17,15 @@ export const getChartCalendar = () => {
     url: '/chart/calendar'
   })
 }
+
+/**
+ * 指定日期的时段柱形数据
+ */
+export const getChartTimeAmount = (date) => {
+  return request({
+    url: '/chart/time/amount',
+    params: {
+      date
+    }
+  })
+}
