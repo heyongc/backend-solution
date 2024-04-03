@@ -5,8 +5,10 @@
 </template>
 
 <script setup>
-import zhCn from 'element-plus/es/locale/lang/zh-cn'
-import en from 'element-plus/lib/locale/lang/en'
+// import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import en from 'element-plus/dist/locale/en.mjs'
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+
 import { useStore } from 'vuex'
 import { defineOptions } from 'vue'
 import { generateNewStyle, writeNewStyle } from '@/utils/theme'

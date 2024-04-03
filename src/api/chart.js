@@ -29,3 +29,21 @@ export const getChartTimeAmount = (date) => {
     }
   })
 }
+
+/**
+ * 饼图数据
+ */
+export const getChartPie = () => {
+  return request({
+    url: '/chart/pie'
+  })
+}
+
+/**
+ * 文字云图数据
+ */
+export const getChartWordCloud = () => {
+  return request({
+    url: '/chart/wordcloud'
+  })
+}
