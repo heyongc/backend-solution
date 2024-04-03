@@ -139,6 +139,16 @@ export const publicRoutes = [
         }
       },
       {
+        path: '/chart',
+        name: 'chart',
+        component: () =>
+          import(/* webpackChunkName: "chart" */ '@/views/chart/index'),
+        meta: {
+          title: 'chart',
+          icon: 'chart'
+        }
+      },
+      {
         path: '/404',
         name: '404',
         component: () => import('@/views/error-page/404')
