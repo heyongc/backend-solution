@@ -27,11 +27,19 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { getChartCalendar } from '@/api/chart'
+import emitter from '@/utils/eventHub'
 
 // 选中的日期
 const currentDate = ref(new Date())
+
+/**
+ * 触发日期改变的事件
+ */
+watch(currentDate, (val) => {
+  emitter.emit('calendarChange', val)
+})
 
 /**
  * 获取数据

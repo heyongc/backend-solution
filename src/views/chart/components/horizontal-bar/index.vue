@@ -15,6 +15,8 @@ import { onMounted, ref } from 'vue'
 // 国际化相关
 import { useI18n } from 'vue-i18n'
 import { watchSwitchLang } from '@/utils/i18n'
+import emitter from '@/utils/eventHub'
+
 const i18n = useI18n()
 
 /**
@@ -28,6 +30,13 @@ const getData = async (date) => {
   renderChart()
 }
 getData()
+
+/**
+ * 与日历图联通
+ */
+emitter.on('calendarChange', (val) => {
+  getData(val)
+})
 
 /**
  * 图表初始化
