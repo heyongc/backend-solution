@@ -65,3 +65,15 @@ export const getChartRegions = () => {
     url: '/chart/regions'
   })
 }
+
+/**
+ * 表格数据
+ */
+export const getChartSheet = (regionId) => {
+  return request({
+    url: '/chart/sheets',
+    params: {
+      regionId
+    }
+  })
+}

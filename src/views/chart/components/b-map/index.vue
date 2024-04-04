@@ -20,6 +20,7 @@ const chartData = ref({})
 const getChartData = async () => {
   const res = await getChartMap()
   chartData.value = res
+  console.log('【chartData.value】', chartData.value)
   // 渲染图表
   renderBMap()
 }
